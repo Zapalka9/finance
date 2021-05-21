@@ -1,0 +1,183 @@
+	<form class="form-group" id="idForm" method="POST" action="/para/paktien">
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				  <th scope="col">+</th>
+				  <th width=180 scope="col">Unternehmen</th>
+				  <th width=110 scope="col">WKN</th>
+				  <th width=130 scope="col">Type</th>
+				  <th width=180 scope="col">Land</th>
+				  <th width=100 scope="col">Währung</th>
+				  <th width=410 scope="col">Sektor</th>
+				  <th width=170 scope="col">Bench</th>
+				  <th scope="col">DivRyt</th>
+				  <th scope="col">Div1</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>+</td>
+				<td><input class="form-control" type="text" placeholder='Unternehmen' name="unt" id="unt"></td>
+				<td><input class="form-control" type="text" placeholder='WKN' name="wkn" id="wkn"></td>
+				<td name="typ" id="typ">
+					<select class="custom-select" id="inputGroupSelectTypeIns" name="typeIns">
+					<option selected>Type</option>
+					<% if (shareTypes.length !== 0) { %>
+						<% for(var j=0; j < shareTypes.length; j++) { %>
+							<option value=<%= shareTypes[j].type %>><%= shareTypes[j].type %></option>
+						<% } %>
+					<% } %>	
+					</select>
+				</td>
+				<td name="cou" id="cou">
+					<select class="custom-select" id="inputGroupSelectCounIns" name="counIns">
+					<option selected>Land</option>
+					<% if (countries.length !== 0) { %>
+						<% for(var j=0; j < countries.length; j++) { %>
+							<option value=<%= countries[j].country %>><%= countries[j].country %></option>
+						<% } %>
+					<% } %>	
+					</select>
+				</td>
+				<td name="cur" id="cur">
+					<select class="custom-select" id="inputGroupSelectCurrIns" name="currIns">
+					<option selected>Währung</option>
+					<% if (currencies.length !== 0) { %>
+						<% for(var j=0; j < currencies.length; j++) { %>
+							<option value=<%= currencies[j].currency %>><%= currencies[j].currency %></option>
+						<% } %>
+					<% } %>	
+					</select>
+				</td>
+				<td name="sec" id="sec">
+					<select class="custom-select" id="inputGroupSelectSectIns" name="sectIns">
+					<option selected>Sektor</option>
+					<% if (shareSectors.length !== 0) { %>
+						<% for(var j=0; j < shareSectors.length; j++) { %>
+							<option value=<%= shareSectors[j].sector %>><%= shareSectors[j].sector %></option>
+						<% } %>
+					<% } %>	
+					</select>
+				</td>
+				<td name="ben" id="ben">
+					<select class="custom-select" id="inputGroupSelectBenchIns" name="benchIns">
+					<option selected>Bench</option>
+					<% if (benchIndices.length !== 0) { %>
+						<% for(var j=0; j < benchIndices.length; j++) { %>
+							<option value=<%= benchIndices[j].index %>><%= benchIndices[j].index %></option>
+						<% } %>
+					<% } %>	
+					</select>
+				</td>
+				<td><input class="form-control" type="number" min="0" max="4" step="1" placeholder='' name="dRy" id="dRy"></td>
+				<td><input class="form-control" type="number" min="0" max="12" step="1" placeholder='' name="div" id="div"></td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+
+
+		<button class="btn btn-outline-success my-2 my-sm-0" name="butInsert"  id="idInsert" onclick="return msgBox('Dokument tatsächlich einfügen?')" type="submit">Insert</button>
+		<button class="btn btn-outline-success my-2 my-sm-0" name="butUpdate"  id="idUpdate" onclick="return msgBox('Dokument tatsächlich updaten?')" type="submit">Update</button>
+		<button class="btn btn-outline-success my-2 my-sm-0" name="butDelete"  id="idDelete" onclick="return msgBox('Dokument tatsächlich löschen?')" type="submit">Delete</button>
+		<input class="form-control" type="hidden" placeholder="" name="strIndex" id="strIndex">
+
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+				<th scope="col">#</th>
+				<th width=180 scope="col">Unternehmen</th>
+				<th width=110 scope="col">WKN</th>
+				<th width=130 scope="col">Type</th>
+				<th width=180 scope="col">Land</th>
+				<th width=100 scope="col">Währung</th>
+				<th width=410 scope="col">Sektor</th>
+				<th width=170 scope="col">Bench</th>
+				<th scope="col">DivRyt</th>
+				<th scope="col">Div1</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i < paraAktien.length; i++) { %>
+					<tr>
+					  <td><%= (i+1) %></td>
+					  <td><input class="form-control" type="text" placeholder=<%= paraAktien[i].unternehmen %> name="unt<%= i %>" id="unt<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="text" placeholder=<%= paraAktien[i].wkn %> name="wkn<%= i %>" id="wkn<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  
+					  <td name="typ<%= i %>" id="typ<%= i %>">
+						<select class="custom-select" id="inputGroupSelectType<%= i %>" name="type" onclick="getIndex(<%= i %>)">
+						  <option selected><%= paraAktien[i].type %></option>
+						  <% if (shareTypes.length !== 0) { %>
+							<% for(var j=0; j < shareTypes.length; j++) { %>
+								<option value=<%= shareTypes[j].type %>><%= shareTypes[j].type %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </td>
+					  <td name="cou<%= i %>" id="cou<%= i %>">
+						<select class="custom-select" id="inputGroupSelectCoun<%= i %>" name="coun" onclick="getIndex(<%= i %>)">
+						  <option selected><%= paraAktien[i].land %></option>
+						  <% if (countries.length !== 0) { %>
+							<% for(var j=0; j < countries.length; j++) { %>
+								<option value=<%= countries[j].country %>><%= countries[j].country %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </td>
+					  <td name="cur<%= i %>" id="cur<%= i %>">
+						<select class="custom-select" id="inputGroupSelectCurr<%= i %>" name="curr" onclick="getIndex(<%= i %>)">
+						  <option selected><%= paraAktien[i].currency %></option>
+						  <% if (currencies.length !== 0) { %>
+							<% for(var j=0; j < currencies.length; j++) { %>
+								<option value=<%= currencies[j].currency %>><%= currencies[j].currency %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </td>
+					  <td name="sec<%= i %>" id="sec<%= i %>">
+						<select class="custom-select" id="inputGroupSelectSect<%= i %>" name="sect" onclick="getIndex(<%= i %>)">
+						  <option selected><%= paraAktien[i].sektor %></option>
+						  <% if (shareSectors.length !== 0) { %>
+							<% for(var j=0; j < shareSectors.length; j++) { %>
+								<option value=<%= shareSectors[j].sector %>><%= shareSectors[j].sector %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </td>
+					  <td name="ben<%= i %>" id="ben<%= i %>">
+						<select class="custom-select" id="inputGroupSelectBench<%= i %>" name="bench" onclick="getIndex(<%= i %>)">
+						  <option selected><%= paraAktien[i].bench %></option>
+						  <% if (benchIndices.length !== 0) { %>
+							<% for(var j=0; j < benchIndices.length; j++) { %>
+								<option value=<%= benchIndices[j].index %>><%= benchIndices[j].index %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </td>
+
+					  <td><input class="form-control" type="number" min="0" max="4" step="1" placeholder=<%= paraAktien[i].divRyt %> name="dRy<%= i %>" id="dRy<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="number" min="0" max="12" step="1" placeholder=<%= paraAktien[i].div1 %> name="div<%= i %>" id="div<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					</tr>
+				 <% } %>
+			</tbody>
+			
+		  </table>	
+			<script type="text/javascript">
+				var ind=-1;
+				document.getElementById('strIndex').value='-1';
+				function getIndex(index) {
+					var ind = index;
+					document.getElementById('strIndex').value=ind;				
+				}
+			
+				function msgBox(str)
+				{
+					return window.confirm(str);
+				}
+
+		  	</script>
+		</div>
+	</form>
+	

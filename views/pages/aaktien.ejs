@@ -1,0 +1,105 @@
+	<form class="form-group" id="idForm" method="POST" action="/asset/aaktien">
+		<div class="row row-cols-2">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				  <th scope="col">+</th>
+				  <th width=400 scope="col">WKN</th>
+				  <th width=180 scope="col">Stück</th>
+				  <th width=180 scope="col">Kurs</th>
+				  <th width=100 scope="col">Datum</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>+</td>
+				<td name="wkn" id="wkn">
+					<select class="custom-select" id="inputGroupSelectWKN" name="selWKN">
+					<option selected>wkn</option>
+					<% if (paraAktien.length !== 0) { %>
+						<% for(var j=0; j < paraAktien.length; j++) { %>
+							<option value=<%= j %>><%= paraAktien[j].unternehmen %>--><%= paraAktien[j].wkn %></option>
+						<% } %>
+					<% } %>	
+					</select>
+				</td>
+				<td><input class="form-control" type="number" min="0" max="100000" step="0.0001" placeholder='####.####' name="stück" id="stück"></td>
+				<td><input class="form-control" type="number" min="0" max="10000" step="0.01" placeholder='####.##' name="kurs" id="kurs"></td>
+				<td><input class="form-control" type="date" placeholder='' name="datum" id="datum"></td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+
+		<button class="btn btn-outline-success my-2 my-sm-0" name="butBuy"  id="idBuy" onclick="return msgBox('Aktie tatsächlich kaufen?')" type="submit">Buy</button>
+		<button class="btn btn-outline-success my-2 my-sm-0" name="butUpdate"  id="idUpdate" onclick="return msgBox('Dokument tatsächlich updaten?')" type="submit">Update</button>
+		<button class="btn btn-outline-success my-2 my-sm-0" name="butDelete"  id="idDelete" onclick="return msgBox('Dokument tatsächlich löschen?')" type="submit">Delete</button>
+		<button class="btn btn-outline-success my-2 my-sm-0" name="butSell"  id="idSell" onclick="return msgBox('Aktie tatsächlich verkaufen?')" type="submit">Sell</button>
+		<input class="form-control" type="text" style="text-align: right;" placeholder="Gesamt = <%= totalAktien[0].Wert.toFixed(2) %>"" name="total" readonly id="total">
+		<input class="form-control" type="hidden" placeholder="" name="strIndex" id="strIndex">
+
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+				<th scope="col">#</th>
+				<th width=200 scope="col">Unternehmen</th>
+				<th width=120 scope="col">WKN</th>
+				<th width=140 scope="col">Stück</th>
+				<th width=150 scope="col">Kurs</th>
+				<th width=150 scope="col">Wert</th>
+				<th width=150 scope="col">Kauf-Kurs</th>
+				<th width=60 scope="col">Kauf-Datum</th>
+				<th width=150 scope="col">+/-</th>
+				<th width=100 scope="col">Haltedauer</th>
+				<th width=140 scope="col">Rendite</th>
+				<th width=100 scope="col">Währung</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i < assetAktien.length; i++) { %>
+					<tr>
+					  <td><%= (i+1) %></td>
+					  <td><input class="form-control" type="text" placeholder=<%= assetAktien[i].unternehmen %> name="unt<%= i %>" id="unt<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="text" placeholder=<%= assetAktien[i].wkn %> name="wkn<%= i %>" id="wkn<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="number" min="0" max="100000" step="0.0001" placeholder=<%= assetAktien[i].stück.toFixed(3) %> name="stück<%= i %>" id="stück<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="number" min="0" max="100000" step="0.01" placeholder=<%= assetAktien[i].kurs.toFixed(2) %> name="kurs<%= i %>" readonly id="kurs<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="number" min="0" max="1000000" step="0.01" placeholder=<%= assetAktien[i].wert.toFixed(2) %> name="wert<%= i %>" readonly id="wert<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="number" min="0" max="100000" step="0.01" placeholder=<%= assetAktien[i].k_kurs.toFixed(2) %> name="k_kurs<%= i %>" id="k_kurs<%= i %>" onclick="getIndex(<%= i %>)"></td>	
+					  <td><input class="form-control" type="date" placeholder=<%= assetAktien[i].k_datum %> value=<%= assetAktien[i].k_datum %> name="k_datum<%= i %>" id="k_datum<%= i %>"></td>
+					  <td><input class="form-control" type="number" min="-1000000" max="1000000" step="0.01" placeholder=<%= assetAktien[i].entwicklung.toFixed(2) %> name="entw<%= i %>" readonly id="entw<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="number" min="0" max="50" step="0.01" placeholder=<%= assetAktien[i].h_dauer.toFixed(2) %> name="h_dauer<%= i %>" readonly id="h_dauer<%= i %>" onclick="getIndex(<%= i %>)"></td>
+					  <td><input class="form-control" type="number" min="-1000" max="1000" step="0.01" placeholder=<%= assetAktien[i].rendite.toFixed(4) %> name="rendite<%= i %>" readonly id="rendite<%= i %>" onclick="getIndex(<%= i %>)"></td>
+
+					  <td name="cur<%= i %>" id="cur<%= i %>">
+						<select class="custom-select" id="inputGroupSelectCurr<%= i %>" name="curr" onclick="getIndex(<%= i %>)">
+						  <option selected><%= assetAktien[i].currency %></option>
+						  <% if (currencies.length !== 0) { %>
+							<% for(var j=0; j < currencies.length; j++) { %>
+								<option value=<%= currencies[j].currency %>><%= currencies[j].currency %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </td>
+					</tr>
+				 <% } %>
+			</tbody>
+			
+		  </table>	
+			<script type="text/javascript">
+				var ind=-1;
+				document.getElementById('strIndex').value='-1';
+				function getIndex(index) {
+					var ind = index;
+					document.getElementById('strIndex').value=ind;				
+				}
+			
+				function msgBox(str)
+				{
+					return window.confirm(str);
+				}
+
+		  	</script>
+		</div>
+	</form>
+	

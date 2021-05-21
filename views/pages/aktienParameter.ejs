@@ -1,0 +1,211 @@
+		<form class="form-inline" method="POST" action="/test">
+			<button class="btn btn-outline-success my-2 my-sm-0" name="butTest"  id="idTest" type="submit">Aktien_View</button>
+		
+
+		<table class="table table-striped">
+			<tbody>
+					<tr>
+					  <td><div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <label class="input-group-text" for="inputGroupSelect01">Country</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01" name="Country">
+						  <option selected>Choose...</option>
+						  <% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= countries[i].country %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>	
+						</select>
+					  </div></td>
+					  <td><div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <label class="input-group-text" for="inputGroupSelect01">Currency</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01" name="Currency">
+						  <option selected>Choose...</option>
+						  <% if (currencies.length !== 0) { %>
+							<% for(var i=0; i < currencies.length; i++) { %>
+								<option value=<%= currencies[i].currency %>><%= currencies[i].currency %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </div></td>
+					  <td><div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <label class="input-group-text" for="inputGroupSelect01">Country</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01">
+						  <option selected>Choose...</option>
+						  <% if (countries.length !== 0) { %>
+							<% for(var i=0; i < countries.length; i++) { %>
+								<option value=<%= i+1 %>><%= countries[i].country %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </div></td>
+					  <td><div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <label class="input-group-text" for="inputGroupSelect01">Country</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01">
+						  <option selected>Choose...</option>
+						  <% if (countries.length !== 0) { %>
+							<% for(var i=0; i < countries.length; i++) { %>
+								<option value=<%= i+1 %>><%= countries[i].country %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </div></td>
+					  <td><div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <label class="input-group-text" for="inputGroupSelect01">Country</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01">
+						  <option selected>Choose...</option>
+						  <% if (countries.length !== 0) { %>
+							<% for(var i=0; i < countries.length; i++) { %>
+								<option value=<%= i+1 %>><%= countries[i].country %></option>
+							<% } %>
+						<% } %>	
+						</select>
+					  </div></td>
+					</tr>
+					<tr>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>		
+						  </select>
+						</div></td>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>		
+						  </select>
+						</div></td>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>		
+						  </select>
+						</div></td>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>		
+						  </select>
+						</div></td>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>		
+						  </select>
+						</div></td>
+					  </tr>
+					  <tr>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>	
+						  </select>
+						</div></td>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>		
+						  </select>
+						</div></td>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>	
+						  </select>
+						</div></td>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>		
+						  </select>
+						</div></td>
+						<td><div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Country</label>
+						  </div>
+						  <select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<% if (countries.length !== 0) { %>
+								<% for(var i=0; i < countries.length; i++) { %>
+									<option value=<%= i+1 %>><%= countries[i].country %></option>
+								<% } %>
+							<% } %>		
+						  </select>
+						</div></td>
+					  </tr>
+			</tbody>
+		  </table>
+
+		</form>

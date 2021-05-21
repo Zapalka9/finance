@@ -1,0 +1,64 @@
+<a class="navbar-brand" href="#"><%= anzPage %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/aktien">Aktien</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/test">Parameter</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Charts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/">Home</a>
+          <a class="dropdown-item" href="/aktien">Aktien</a>
+          <a class="dropdown-item" href="/about">About</a>
+          <a class="dropdown-item" href="/test">Parameter</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navDropdownCharts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cashflow
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/cash/market">Märkte</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navDropdownAssets" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Assets
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/asset/aaktien">Aktien</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navDropdownPara" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Parameter
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/para/paktien">Aktien</a>
+        </div>
+      </li>
+	</ul>
+	<form class="form-inline" method="POST" action="/login">
+		<input class="form-control mr-sm-2" type="search" placeholder="user" name="user"  id="idUserName" aria-label="user">
+		<input class="form-control mr-sm-2" type="password" autocomplete="" placeholder="pin" name="password"  id="idPassword" aria-label="pin">
+		<button class="btn btn-outline-success my-2 my-sm-0" name="butLogin"  id="idLogin" type="submit">Login</button>
+  </form>
+  <form class="form-inline" method="POST" action="/logout">
+    <button class="btn btn-outline-success my-2 my-sm-0" name="butLogout"  id="idLogout" type="submit">Logout</button>
+  </form>
+  <p class="text-white bg-dark">&nbsp&nbsp<%= nick %></p>
+  </div>

@@ -1,0 +1,51 @@
+
+		<form class="form-group" id="idForm" method="POST" action="/test">
+			<button class="btn btn-outline-success my-2 my-sm-0" name="butUpdate"  id="idUpdate" onclick="return msgBox('Dokument tatsächlich updaten?')" type="submit">Update</button>
+			<button class="btn btn-outline-success my-2 my-sm-0" name="butInsert"  id="idInsert" onclick="return msgBox('Dokument tatsächlich einfügen?')" type="submit">Insert</button>
+			<input class="form-control" type="text" style="text-align: right;" placeholder="Gesamt = <%= totalAktien[0].Wert.toFixed(2) %>"" name="total" readonly id="total">
+			<input class="form-control" type="hidden" placeholder="" name="strIndex" id="strIndex">
+
+			
+
+		<div class="row">
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+				<th scope="col">#</th>
+				<th scope="col">WKN</th>
+				<th scope="col">Unternehmen</th>
+				<th scope="col">Anzahl</th>
+				<th scope="col">Preis</th>
+				<th scope="col">Wert</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i < myAktien.length; i++) { %>
+					<tr>
+					  <td><%= (i+1) %></td>
+					  <td><%= myAktien[i].WKN %></td>
+					  <td><input class="form-control" type="text" placeholder=<%= myAktien[i].Unternehmen %> readonly id="ex<%= i %>"></td>
+					  <td><input class="form-control" type="text" style="text-align: right;" placeholder=<%= myAktien[i].Anzahl.toFixed(3) %> name="exa<%= i %>" id="exa<%= i %>" onclick="getIndex(<%= i %>)"></td> 
+					  <td><input class="form-control" type="text" style="text-align: right;" placeholder=<%= myAktien[i].Preis.toFixed(2) %> name="preis<%= i %>" readonly id="exam<%= i %>"></td>
+					  <td><input class="form-control" type="text" style="text-align: right;" placeholder=<%= aggAktien[i].Wert.toFixed(2) %> name="total<%= i %>" readonly id="total<%= i %>"></td>
+					</tr>
+				 <% } %>
+			</tbody>
+			
+		  </table>	
+			<script type="text/javascript">
+				var ind=-1;
+				function getIndex(index) {
+					var ind = index;
+					document.getElementById('strIndex').value=index;				
+				}
+			
+				function msgBox(str)
+				{
+					return window.confirm(str);
+				}
+
+		  	</script>
+		</div>
+	</form>
+	

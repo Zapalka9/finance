@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-sm-6">
+		<canvas id="myChartBar"></canvas>
+	</div>
+
+<script type="text/javascript">
+  var dataBar = <%- JSON.stringify(BarData); %>;
+// Get the context of the canvas element we want to select
+  var ctxPelo = document.getElementById('myChartBar');
+  ctxPelo.height=100;
+
+  var myChart = new Chart(ctxPelo, dataBar);
+  
+</script>
+
+</div>
+
+
+	

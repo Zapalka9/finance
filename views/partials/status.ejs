@@ -1,0 +1,18 @@
+<% if(status.id < 1000) { %>
+	<div class="p-0 mb-2 bg-success text-white"><p>stamp=<%= status.stamp%> &nbsp &nbsp &nbsp &nbsp id=<%= status.id %> &nbsp &nbsp &nbsp &nbsp message=<%= status.message %></p></div>
+	<% } %>
+
+<% if ((status.id > 999) && (status.id < 2000)) { %>
+	<div class="p-0 mb-2 bg-warning text-white"><p>stamp=<%= status.stamp%> &nbsp &nbsp &nbsp &nbsp id=<%= status.id %> &nbsp &nbsp &nbsp &nbsp message=<%= status.message %></p></div>
+	<% } %>	
+
+<% if (status.id > 1999) { %>
+	<div class="p-0 mb-2 bg-danger text-white"><p>stamp=<%= status.stamp%> &nbsp &nbsp &nbsp &nbsp id=<%= status.id %> &nbsp &nbsp &nbsp &nbsp message=<%= status.message %></p></div>
+	<% } %>	
+
+
+
+
+
+			
+
